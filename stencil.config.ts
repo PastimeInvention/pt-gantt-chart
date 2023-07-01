@@ -9,6 +9,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
+      customElementsExportBehavior: 'bundle'
     },
     {
       type: 'docs-readme',
