@@ -1,4 +1,7 @@
 import { Config } from '@stencil/core';
+import { postcss } from '@stencil-community/postcss';
+import { sass } from '@stencil/sass';
+import autoprefixer from 'autoprefixer';
 
 export const config: Config = {
   namespace: 'pt-gantt-chart',
@@ -9,7 +12,7 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
-      customElementsExportBehavior: 'bundle'
+      customElementsExportBehavior: 'bundle',
     },
     {
       type: 'docs-readme',
@@ -20,6 +23,14 @@ export const config: Config = {
     },
   ],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: 'new',
   },
+  plugins: [
+    sass({
+      injectGlobalPaths: ['src/globals/variables.scss', 'src/globals/mixins.scss'],
+    }),
+    postcss({
+      plugins: [autoprefixer()],
+    }),
+  ],
 };

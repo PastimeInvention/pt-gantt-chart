@@ -1,0 +1,77 @@
+:host {
+  // Date related variables
+  --gantt-day-width: 40px;
+
+  --gantt-inner-height: 400px;
+  --gantt-offset-length: 0;
+  // Items related variables
+  --gantt-item-height: 50px;
+  --gantt-item-side-width: 150px;
+}
+
+main {
+  position: relative;
+  height: var(--gantt-inner-height);
+  width: 100%;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.gantt-chart-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+
+  &-line {
+    border-right: 1px solid gray;
+    width: var(--gantt-day-width);
+    height: 100%;
+  }
+}
+
+.gantt-chart-wrapper {
+  position: relative;
+  z-index: 2;
+  height: var(--gantt-inner-height);
+}
+
+.gantt-chart-offset {
+  padding-top: calc(var(--gantt-item-height) * var(--gantt-offset-length));
+}
+
+.gantt-chart-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &:hover {
+    .gantt-chart-item-bar {
+      opacity: 0.5;
+    }
+  }
+
+  &-side {
+    position: sticky;
+    left: 0;
+    top: 0;
+    height: var(--gantt-item-height);
+    display: flex;
+    align-items: center;
+    background: lightcyan;
+    border-bottom: 1px solid gray;
+    width: var(--gantt-item-side-width);
+    z-index: 2;
+  }
+
+  &-bar {
+    margin-left: 100px;
+    width: 100%;
+    background: rgba(133, 221, 142, 0.5);
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px black;
+    cursor: pointer;
+  }
+}
