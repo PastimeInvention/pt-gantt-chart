@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface PtGanttChart {
         /**
           * The first name
          */
@@ -22,18 +22,18 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLPtGanttChartElement extends Components.PtGanttChart, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLPtGanttChartElement: {
+        prototype: HTMLPtGanttChartElement;
+        new (): HTMLPtGanttChartElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "pt-gantt-chart": HTMLPtGanttChartElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface PtGanttChart {
         /**
           * The first name
          */
@@ -48,14 +48,14 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "pt-gantt-chart": PtGanttChart;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "pt-gantt-chart": LocalJSX.PtGanttChart & JSXBase.HTMLAttributes<HTMLPtGanttChartElement>;
         }
     }
 }

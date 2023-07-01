@@ -1,36 +1,36 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { MyComponent } from './my-component';
+import { GanttChart } from './gantt-chart';
 
-describe('my-component', () => {
+describe('pt-gantt-chart', () => {
   it('renders', async () => {
     const { root } = await newSpecPage({
-      components: [MyComponent],
-      html: '<my-component></my-component>',
+      html: '<pt-gantt-chart></pt-gantt-chart>',
+      components: [GanttChart],
     });
     expect(root).toEqualHtml(`
-      <my-component>
+      <pt-gantt-chart>
         <mock:shadow-root>
           <div>
             Hello, World! I'm
           </div>
         </mock:shadow-root>
-      </my-component>
+      </pt-gantt-chart>
     `);
   });
 
   it('renders with values', async () => {
     const { root } = await newSpecPage({
-      components: [MyComponent],
-      html: `<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>`,
+      components: [GanttChart],
+      html: `<pt-gantt-chart first="Stencil" last="'Don't call me a framework' JS"></pt-gantt-chart>`,
     });
     expect(root).toEqualHtml(`
-      <my-component first="Stencil" last="'Don't call me a framework' JS">
+      <pt-gantt-chart first="Stencil" last="'Don't call me a framework' JS">
         <mock:shadow-root>
           <div>
             Hello, World! I'm Stencil 'Don't call me a framework' JS
           </div>
         </mock:shadow-root>
-      </my-component>
+      </pt-gantt-chart>
     `);
   });
 });
